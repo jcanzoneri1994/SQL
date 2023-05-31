@@ -1,0 +1,11 @@
+Create a to do list database
+
+CREATE TABLE todo_list VALUES (id INTEGER PRIMARY KEY, item TEXT, minutes INTEGER);
+INSERT INTO todo_list VALUES (1, "washing the dishes", 15);
+INSERT INTO todo_list VALUES (2, "vacuuming", 20);
+INSERT INTO todo_list VALUES (3, "practice data analytics", 30);
+INSERT INTO todo_list VALUES (4, "laundry", 100);
+
+Display total minutes to finish everything on the to do list
+
+SELECT SUM(minutes) FROM todo_list;
