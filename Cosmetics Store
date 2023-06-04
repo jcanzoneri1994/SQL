@@ -1,0 +1,29 @@
+I have created a table for a cosmetics store which contains different products, their departments, brands, and pricing.
+
+CREATE TABLE cosmetics_store (id INTEGER PRIMARY KEY, department TEXT, brand TEXT, product TEXT, price INTEGER);
+
+INSERT INTO cosmetics_store VALUES (1, "fragrance", "kayali", "yum pistachio gelato", 138);
+INSERT INTO cosmetics_store VALUES (2, "skincare", "tatcha", "silk canvas primer", 54);
+INSERT INTO cosmetics_store VALUES (3, "makeup", "haus labs", "liquid foundation", 45);
+INSERT INTO cosmetics_store VALUES (4, "makeup", "kvd beauty", "tattoo liner", 25);
+INSERT INTO cosmetics_store VALUES (5, "hair", "briogeo", "scalp revival shampoo", 42);
+INSERT INTO cosmetics_store VALUES (6, "skincare", "drunk elephant", "bronzi drops", 38);
+INSERT INTO cosmetics_store VALUES (7, "hair", "vegamour", "dry shampoo", 36);
+INSERT INTO cosmetics_store VALUES (8, "fragrance", "tom ford", "lost cherry", 395);
+INSERT INTO cosmetics_store VALUES (9, "makeup", "laura mercier", "loose setting powder", 43);
+INSERT INTO cosmetics_store VALUES (10, "makeup", "ilia", "limitless lash mascara", 28);
+INSERT INTO cosmetics_store VALUES (11, "hair", "amika", "nourishing hair mask", 52);
+INSERT INTO cosmetics_store VALUES (12, "fragrance", "versace", "dylan blue", 98);
+INSERT INTO cosmetics_store VALUES (13, "makeup", "anastasia beverly hills", "brow wiz", 25);
+INSERT INTO cosmetics_store VALUES (14, "makeup", "makeup by mario", "soft pop plumping blush", 30);
+INSERT INTO cosmetics_store VALUES (15, "skincare", "olehenriksen", "peptide strengthening moisturizer", 51);
+
+I selected all information from my chart to show everything that is sold in this cosmetics store and sorted all products by their price from highest to lowest price.
+
+SELECT * FROM cosmetics_store
+ORDER BY price DESC;
+
+I selected all cosmetics products that are sold in the cosmetics store that are in the makeup department.
+
+SELECT * FROM cosmetics_store
+WHERE department = "makeup";
