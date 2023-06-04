@@ -1,0 +1,43 @@
+I created a table showing final game statistics from a Mario Party game.
+
+CREATE TABLE mario_party_results (id INTEGER PRIMARY KEY, name TEXT, stars INTEGER, coins INTEGER, hidden_block INTEGER, games_won INTEGER, blue_space INTEGER, red_space INTEGER, happening_space INTEGER, koopa_bank_space INTEGER, chance_time_space INTEGER, bowser_space INTEGER);
+
+INSERT INTO mario_party_results VALUES (1, "yoshi", 5, 62, 1, 8, 12, 3, 4, 1, 0, 0);
+INSERT INTO mario_party_results VALUES (2, "donkey kong", 6, 67, 0, 10, 11, 4, 3, 0, 1, 1);
+INSERT INTO mario_party_results VALUES (3, "mario", 3, 22, 1, 4, 13, 4, 3, 0, 0, 0);
+INSERT INTO mario_party_results VALUES (4, "wario", 1, 3, 0, 3, 10, 6, 2, 0, 0, 2);
+
+I diplayed all final statistics from the Mario Party game.
+
+SELECT * FROM mario_party_results;
+
+I displayed the average amount of coins that all four players ended the game with.
+
+SELECT AVG(coins) FROM mario_party_results;
+
+I created a query to show which players have received hidden blocks and have ended the game with more than 25 coins.
+
+SELECT name, stars, coins, hidden_block FROM mario_party_results
+WHERE hidden_block > 0
+AND coins > 25;
+
+I created a query to display how many times each player landed on each type of game space that have also landed on Bowser spaces.
+
+SELECT name, blue_space, red_space, happening_space, koopa_bank_space, chance_time_space, bowser_space FROM mario_party_results
+GROUP BY name
+HAVING bowser_space > 0;
+
+I created a query to show which player ended the game with the highest amount of stars.
+
+SELECT name, MAX(stars) FROM mario_party_results;
+
+I created a case query to show which player won the game and which players lost.
+
+SELECT name, stars, coins,
+    CASE
+        WHEN stars = MAX(stars) THEN "winner"
+        ELSE "loser"
+    END AS "results"
+FROM mario_party_results
+GROUP BY name
+ORDER BY stars DESC;
